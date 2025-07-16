@@ -1,0 +1,346 @@
+/* General body styling from homepage.py and analysis_page.py */
+.main .block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 3rem; /* Default from homepage, analysis_page might override */
+    padding-right: 3rem; /* Default from homepage, analysis_page might override */
+}
+
+/* Titles and Headers */
+h1, h2, h3, h4, h5, h6 { /* General header color from analysis_page.py */
+    color: #003366; /* Dark Blue for headers */
+}
+
+.title { /* From homepage.py */
+    text-align: center;
+    font-size: 2.8em;
+    font-weight: bold;
+    color: #003366; /* Dark Blue */
+    margin-bottom: 0.5rem;
+}
+
+.description { /* From homepage.py */
+    text-align: center;
+    font-size: 1.3em;
+    color: #333333;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Feature Cards from homepage.py */
+.feature-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-left: 5px solid #FFB300; /* Gold accent */
+    border-radius: 8px;
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+.feature-card h3 { /* h3 within feature-card specifically */
+    font-size: 1.5em; /* Adjusted from 1.6em to prevent wrapping */
+    font-weight: bold;
+    color: #004080; /* Darker Blue */
+    margin-bottom: 0.8rem;
+}
+.feature-card p {
+    font-size: 1.05em;
+    color: #555555;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+.feature-card .icon {
+    font-size: 2.5em;
+    margin-right: 0.8rem;
+    color: #FFB300; /* Gold */
+}
+
+/* Button Styling - General (taken from homepage.py, potentially overridden by analysis_page.py for specific cases) */
+.stButton>button {
+    display: block;
+    margin: 3rem auto 1rem auto; /* Centered, homepage.py specific margin */
+    padding: 0.8rem 2.5rem; /* homepage.py padding */
+    font-size: 1.2em; /* homepage.py font size */
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #005A9C; /* Primary Blue */
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.stButton>button:hover {
+    background-color: #004080; /* Darker Blue on hover */
+    transform: translateY(-2px); /* homepage.py lift */
+}
+.stButton>button:active {
+    background-color: #003366;
+    transform: translateY(0px);
+}
+
+/* Metrics Styling from analysis_page.py */
+.stMetric {
+    border: 1px solid #D1D5DB; /* Light gray border */
+    border-radius: 8px;
+    padding: 1.2rem; /* Increased padding */
+    background-color: #F9FAFB; /* Very light gray background */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    text-align: center; /* Center align metric content */
+}
+.stMetricValue {
+    font-size: 2.2em !important; /* Slightly larger value font */
+    color: #005A9C; /* Primary Blue for value */
+    font-weight: 600 !important;
+}
+.stMetricLabel {
+    font-size: 1em !important;
+    font-weight: 500 !important; /* Medium weight label */
+    color: #4B5563; /* Gray for label */
+}
+.stMetricDelta { /* Style for delta (up/down indicator) */
+    font-size: 0.9em !important;
+}
+
+/* Info Card Styling from analysis_page.py */
+.info-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB; /* Lighter border */
+    border-left: 5px solid #005A9C; /* Primary Blue accent */
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem; /* Increased bottom margin */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+.info-card h4, .info-card h5, .info-card h6 { /* Headers within info cards */
+    color: #004080; /* Darker blue for card headers */
+    margin-top: 0; /* Remove default top margin for headers in cards */
+    margin-bottom: 0.8rem;
+}
+.info-card p {
+    margin-bottom: 0.4rem;
+    font-size: 0.98em; /* Slightly larger paragraph font */
+    line-height: 1.6;
+    color: #374151; /* Darker gray for text */
+}
+.info-card ul {
+    padding-left: 20px;
+    margin-bottom: 0.5rem;
+}
+.info-card li {
+    margin-bottom: 0.3rem;
+    font-size: 0.95em;
+    color: #4B5563;
+}
+
+/* Expander Styling from analysis_page.py */
+.expander-styling > div:first-child > details {
+    border: 1px solid #D1D5DB !important;
+    border-radius: 8px !important;
+    padding: 0.8rem !important; /* Increased padding */
+    background-color: #F9FAFB !important; /* Light gray background for expander */
+    margin-bottom: 1rem; /* Add some space below expanders */
+}
+.expander-styling > div:first-child > details > summary {
+    font-size: 1.15em !important; /* Slightly larger expander header */
+    font-weight: 600 !important;
+    color: #003366 !important;
+}
+.expander-styling > div:first-child > details[open] > summary { /* Style when expander is open */
+     color: #005A9C !important;
+}
+
+/* Button Styling from analysis_page.py (might override or complement homepage.py's general button style) */
+/* This specific selector is for buttons within analysis_page.py, if they need to differ */
+/* For now, I'll assume the general .stButton>button from homepage.py is the base,
+   and specific pages can add more specific selectors if needed.
+   The analysis_page.py button CSS was:
+    .stButton>button {
+        padding: 0.7rem 1.8rem;
+        font-size: 1.05em;
+        font-weight: bold;
+        color: #FFFFFF;
+        background-color: #005A9C;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    .stButton>button:hover {
+        background-color: #004080;
+        transform: translateY(-1px);
+    }
+    .stButton>button:active {
+        background-color: #003366;
+        transform: translateY(0px);
+    }
+   It's very similar, I'll keep the homepage.py one as the base for now to avoid redundancy.
+   If specific adjustments are needed per page, we can add more specific classes or selectors.
+*/
+
+/* Table styling for AI results from analysis_page.py (part 1 - general tables) */
+.rules-table { /* This was the first table style in analysis_page.py, seems for a generic rule display */
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    margin-bottom:1.5rem;
+    font-size:0.9em;
+    background-color: #fff;
+    border-radius:8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.rules-table th, .rules-table td {
+    border-bottom:1px solid #E5E7EB;
+    padding:10px 12px;
+    text-align:left;
+    vertical-align: top;
+}
+.rules-table th {
+    background-color:#F3F4F6;
+    color:#1F2937;
+    text-align:center;
+    font-weight:bold;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.rules-table td { color: #374151; }
+.rules-table tr:last-child td { border-bottom: none; }
+.rules-table .category-header {
+    background-color:#E9F5FF;
+    font-weight:bold;
+    color: #004080;
+    padding: 10px;
+}
+.rules-table .category-header td { font-weight:bold; }
+.rules-table .rule-name { cursor: help; position: relative; }
+.rules-table .tooltiptext { /* Tooltip for .rules-table */
+    visibility: hidden;
+    width: 280px;
+    background-color: #374151;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 8px 10px;
+    position: absolute;
+    z-index: 10;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size:0.85em;
+    line-height:1.5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.rules-table .rule-name:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+.rules-table td:nth-child(3), .rules-table td:nth-child(4) { text-align:center; }
+
+.score-range-table { /* For the A+/A/B/C score reference table */
+    width:100%;
+    border-collapse: separate;
+    border-spacing:0;
+    margin-bottom:1.5rem;
+    font-size:0.95em;
+    border-radius:8px;
+    overflow:hidden; /* Important for border-radius to apply to th/td */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.score-range-table th {
+    border-bottom: 1px solid #D1D5DB;
+    padding: 0.8rem;
+    text-align: center;
+    color: #1F2937;
+    font-weight:bold;
+}
+.score-range-table td {
+    border-bottom: 1px solid #D1D5DB;
+    padding: 0.8rem;
+    text-align: center;
+    background-color: #F9FAFB; /* Light background for data cells */
+}
+.score-range-table tr:last-child td { border-bottom: none; }
+
+/* Ensure tooltips in Streamlit HTML components are not clipped */
+/* These styles were for .ai-compliance-table, which is no longer styled by this external sheet. */
+/* The original table (.original-score-table) in analysis_page.py now handles its own styles. */
+/* These might need to target more specific Streamlit-generated containers if overflow issues persist */
+div[data-testid="stHtml"] > div, div[data-testid="stHtml"] iframe {
+    overflow: visible !important;
+}
+
+/* Attempt to improve st.dataframe contrast */
+/* This targets a common class used by Glide Data Grid, which Streamlit might use. */
+/* Data cells */
+.gdg-cell {
+    background-color: #FFFFFF !important; /* Force a white background */
+    color: #212529 !important; /* Force a darker text color */
+}
+
+/* Header cells */
+.gdg-header {
+    background-color: #F0F2F6 !important; /* Light gray for header background, slightly different from default */
+    color: #003366 !important; /* Match other header text color in the app */
+    font-weight: bold !important; /* Ensure header text is bold */
+}
+
+/* Specific overrides for Streamlit's default theming on dataframes */
+/* Targeting the div that Streamlit wraps around the dataframe. */
+div[data-testid="stDataFrame"] {
+    border-color: #D1D5DB !important; /* Match border color of stMetric for consistency */
+}
+
+/* Ensure cells within the themed dataframe also get some love if gdg-cell isn't enough */
+div[data-testid="stDataFrame"] .gdg-cell {
+    background-color: #FFFFFF !important;
+    color: #333333 !important; /* A slightly less stark black than #212529 for data */
+    border-bottom: 1px solid #E5E7EB !important; /* Match info-card border */
+    border-right: 1px solid #E5E7EB !important; /* Match info-card border */
+}
+div[data-testid="stDataFrame"] .gdg-header {
+    background-color: #F3F4F6 !important; /* Match .rules-table th background */
+    color: #1F2937 !important; /* Match .rules-table th color */
+    font-weight: bold !important;
+    border-bottom: 1px solid #D1D5DB !important; /* Stronger bottom border for header */
+}
+
+
+/* Footer styling from homepage.py */
+/* This requires the <p> tag to be used directly or a class applied to it */
+.footer-text { /* Example if you wrap footer in a div/p with this class */
+    text-align:center;
+    color: #888;
+    font-size: 0.9em; /* from analysis_page, homepage was just color */
+    margin: 3rem 0 1rem 0; /* from analysis_page */
+}
+
+/* analysis_page.py specific padding override if necessary */
+/* This can be done by adding a class to the block-container in analysis_page.py
+   or by having a more specific selector if Streamlit allows.
+   For now, analysis_page.py used:
+   .main .block-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+   }
+   To achieve this, one could add a class to the body or a top-level div in analysis_page.py
+   if Streamlit provides a way, or simply accept the 3rem default from homepage.
+   Alternatively, if analysis_page specific padding is crucial:
+*/
+/*
+body.analysis-page .main .block-container { // Hypothetical if we can add class to body
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+*/

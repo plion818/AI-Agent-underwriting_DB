@@ -1,0 +1,87 @@
+[
+  {
+    "customer_id": "C00009",
+    "name": "李彥廷",
+    "gender": "男",
+    "birthdate": "1982-06-15",
+    "age": 43,
+    "occupation": "設計師",
+    "marital_status": "已婚",
+    "contact": {
+      "phone": "0911222333",
+      "address": "台北市大安區和平東路50號"
+    },
+    "health_status": "良好",
+    "smoking": false,
+    "property_proof": "月收入5萬",
+    "希望購買保單": "財產保險"
+  },
+  {
+    "customer_id": "C00010",
+    "name": "王小萍",
+    "gender": "女",
+    "birthdate": "1975-10-22",
+    "age": 49,
+    "occupation": "公務員",
+    "marital_status": "已婚",
+    "contact": {
+      "phone": "0922111444",
+      "address": "桃園市中壢區中正路99號"
+    },
+    "health_status": "糖尿病",
+    "smoking": true,
+    "property_proof": "月收入6萬",
+    "希望購買保單": "醫療險"
+  },
+  {
+    "customer_id": "C00011",
+    "name": "陳冠宇",
+    "gender": "男",
+    "birthdate": "1998-12-01",
+    "age": 26,
+    "occupation": "研究生",
+    "marital_status": "未婚",
+    "contact": {
+      "phone": "0988999777",
+      "address": "新竹市東區科學園路20號"
+    },
+    "health_status": "良好",
+    "smoking": false,
+    "property_proof": "無固定收入",
+    "希望購買保單": "醫療險"
+  },
+  {
+    "customer_id": "C00012",
+    "name": "周品妍",
+    "gender": "女",
+    "birthdate": "1968-04-05",
+    "age": 57,
+    "occupation": "餐廳老闆",
+    "marital_status": "已婚",
+    "contact": {
+      "phone": "0977111333",
+      "address": "高雄市鼓山區美術東五路6號"
+    },
+    "health_status": "高血壓",
+    "smoking": false,
+    "property_proof": "月收入10萬",
+    "希望購買保單": "財產保險"
+  },
+  {
+    "customer_id": "C00013",
+    "name": "張信哲",
+    "gender": "男",
+    "birthdate": "1959-01-17",
+    "age": 66,
+    "occupation": "退休",
+    "marital_status": "喪偶",
+    "contact": {
+      "phone": "0955666777",
+      "address": "台中市南屯區公益路318號"
+    },
+    "health_status": "良好",
+    "smoking": true,
+    "property_proof": "退休金每月5萬",
+    "希望購買保單": "壽險"
+  }
+]

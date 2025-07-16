@@ -1,0 +1,227 @@
+[
+  {
+    "customer_id": "C00009",
+    "credit_rating": "AAA",
+    "credit_alert": {
+      "credit_card_overdue_count": 0,
+      "bad_debt": false,
+      "joint_credit_warning": false,
+      "over_insurance": false,
+      "duplicate_insurance": false,
+      "abnormal_insurance": false
+    },
+    "insurance_history": [
+      {
+        "insurance_type": "財產保險",
+        "status": "持有"
+      },
+      {
+        "insurance_type": "醫療險",
+        "status": "退保",
+        "cancel_date": "2021-08-01",
+        "cancel_reason": "保費太高"
+      }
+    ],
+    "claim_records": [
+      {
+        "claim_type": "財產保險",
+        "claim_count": 1,
+        "total_claim_amount": 50000,
+        "main_reason": "火災損失",
+        "disputed": false
+      }
+    ],
+    "review_records": {
+      "manual_reviewed": false,
+      "rejected": false,
+      "pending": false
+    },
+    "suspicious_transaction": {
+      "money_laundering": false,
+      "terrorist_financing": false
+    },
+    "criminal_record": {
+      "has_record": false,
+      "blacklist": false
+    },
+    "current_assets": [
+      "台北市大安區公寓一戶（自住）",
+      "現金約100萬元"
+    ]
+  },
+  {
+    "customer_id": "C00010",
+    "credit_rating": "A",
+    "credit_alert": {
+      "credit_card_overdue_count": 2,
+      "bad_debt": false,
+      "joint_credit_warning": false,
+      "over_insurance": false,
+      "duplicate_insurance": true,
+      "abnormal_insurance": false
+    },
+    "insurance_history": [
+      {
+        "insurance_type": "醫療險",
+        "status": "持有"
+      }
+    ],
+    "claim_records": [
+      {
+        "claim_type": "醫療險",
+        "claim_count": 0,
+        "total_claim_amount": 0,
+        "main_reason": "",
+        "disputed": false
+      }
+    ],
+    "review_records": {
+      "manual_reviewed": false,
+      "rejected": false,
+      "pending": false
+    },
+    "suspicious_transaction": {
+      "money_laundering": false,
+      "terrorist_financing": false
+    },
+    "criminal_record": {
+      "has_record": false,
+      "blacklist": false
+    },
+    "current_assets": [
+      "銀行存款60萬元"
+    ]
+  },
+  {
+    "customer_id": "C00011",
+    "credit_rating": "BBB",
+    "credit_alert": {
+      "credit_card_overdue_count": 1,
+      "bad_debt": false,
+      "joint_credit_warning": false,
+      "over_insurance": false,
+      "duplicate_insurance": false,
+      "abnormal_insurance": true
+    },
+    "insurance_history": [
+      {
+        "insurance_type": "醫療險",
+        "status": "投保中"
+      }
+    ],
+    "claim_records": [
+      {
+        "claim_type": "醫療險",
+        "claim_count": 2,
+        "total_claim_amount": 10000,
+        "main_reason": "意外受傷",
+        "disputed": false
+      }
+    ],
+    "review_records": {
+      "manual_reviewed": true,
+      "rejected": false,
+      "pending": false
+    },
+    "suspicious_transaction": {
+      "money_laundering": false,
+      "terrorist_financing": false
+    },
+    "criminal_record": {
+      "has_record": false,
+      "blacklist": false
+    },
+    "current_assets": [
+      "現金約8萬元"
+    ]
+  },
+  {
+    "customer_id": "C00012",
+    "credit_rating": "AA",
+    "credit_alert": {
+      "credit_card_overdue_count": 0,
+      "bad_debt": false,
+      "joint_credit_warning": false,
+      "over_insurance": false,
+      "duplicate_insurance": false,
+      "abnormal_insurance": false
+    },
+    "insurance_history": [
+      {
+        "insurance_type": "財產保險",
+        "status": "投保中"
+      }
+    ],
+    "claim_records": [
+      {
+        "claim_type": "財產保險",
+        "claim_count": 0,
+        "total_claim_amount": 0,
+        "main_reason": "",
+        "disputed": false
+      }
+    ],
+    "review_records": {
+      "manual_reviewed": false,
+      "rejected": false,
+      "pending": false
+    },
+    "suspicious_transaction": {
+      "money_laundering": false,
+      "terrorist_financing": false
+    },
+    "criminal_record": {
+      "has_record": false,
+      "blacklist": false
+    },
+    "current_assets": [
+      "高雄市店面一間（市值1800萬）",
+      "存款200萬元"
+    ]
+  },
+  {
+    "customer_id": "C00013",
+    "credit_rating": "B",
+    "credit_alert": {
+      "credit_card_overdue_count": 5,
+      "bad_debt": true,
+      "joint_credit_warning": true,
+      "over_insurance": true,
+      "duplicate_insurance": false,
+      "abnormal_insurance": true
+    },
+    "insurance_history": [
+      {
+        "insurance_type": "壽險",
+        "status": "退保",
+        "cancel_date": "2022-12-31",
+        "cancel_reason": "財務困難"
+      }
+    ],
+    "claim_records": [
+      {
+        "claim_type": "壽險",
+        "claim_count": 1,
+        "total_claim_amount": 500000,
+        "main_reason": "重大疾病",
+        "disputed": true
+      }
+    ],
+    "review_records": {
+      "manual_reviewed": true,
+      "rejected": true,
+      "pending": false
+    },
+    "suspicious_transaction": {
+      "money_laundering": true,
+      "terrorist_financing": false
+    },
+    "criminal_record": {
+      "has_record": true,
+      "blacklist": true
+    },
+    "current_assets": [
+      "退休金每月5萬"
+    ]
+  }
+]
