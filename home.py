@@ -79,5 +79,9 @@ with cols[2]:
 if st.button("🚀 開始分析之旅"):
     st.switch_page("pages/analysis_page.py")
 
+# 新增跳轉分析小幫手按鈕
+st.markdown("<br>", unsafe_allow_html=True)
+st.page_link("pages/smart_agent_helper.py", label="🔎 使用智慧核保分析小幫手", icon="🤖", help="點擊前往分析小幫手頁面")
+
 st.markdown("---")
 st.markdown("<p style='text-align:center; color: #888;'>© 2024 智慧核保解決方案</p>", unsafe_allow_html=True)

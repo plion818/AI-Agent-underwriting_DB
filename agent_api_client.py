@@ -12,10 +12,10 @@ logger = logging.getLogger(__name__)
 # 讀取 .env 檔案
 load_dotenv()
 
-def call_agent_api(customer_data: dict, rules: dict, timeout: int = 60):
+def call_agent_api(customer_data: dict, timeout: int = 90):
     """
     自動化呼叫 AGENT API，傳送客戶資訊與規則，回傳 API 結果或 None。
-    timeout: 逾時秒數，預設 60 秒
+    timeout: 逾時秒數，預設 90 秒
     """
     api_url = os.getenv("API_URL")
     api_token = os.getenv("API_TOKEN")
@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
     # 呼叫 API 並顯示
     input_content = {"customer_name": customer_name}
-    result = call_agent_api(input_content, None, timeout=timeout)
+    result = call_agent_api(input_content, timeout=timeout)
     print("="*30)
     print("本次傳送 payload：")
     payload = {

@@ -348,7 +348,7 @@ if selected_name and selected_name in customer_dict:
                 payload = {
                     "customer_name": customer.get("name")
                 }
-                api_result = call_agent_api(payload, None)  # 第二個參數可傳 None 或空 dict
+                api_result = call_agent_api(payload)
                 final_result = extract_final_results(api_result)
                 save_results(final_result, customer.get('customer_id'))
                 st.session_state.show_ai_result_for = customer.get('customer_id')
@@ -557,9 +557,8 @@ if selected_name and selected_name in customer_dict:
 
             st.markdown("<div style='margin-top: 0.5rem; margin-bottom: 0.5rem;'></div>", unsafe_allow_html=True) # Adjusted spacing
 
-            st.markdown("<h5>🧑‍⚖️ 專家洞察與建議</h5>", unsafe_allow_html=True)
+            st.markdown("<h4 style='font-size:2em; color:#343a40;'>🧑‍⚖️ 專家洞察與建議</h4>", unsafe_allow_html=True)
             # Removed the negative margin div, will control spacing with card margins or specific spacers if needed.
-
 
             summary_cols = st.columns(2, gap="large")
             with summary_cols[0]:
