@@ -1,13 +1,21 @@
 import streamlit as st
 from agent_api_client import call_agent_api, extract_final_results
 
+# --- Page Configuration ---
+st.set_page_config(
+    page_title="智慧核保分析小幫手",
+    page_icon="🤖",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
+
 st.markdown("""
 <h2 style='color:#005A9C;'>🧠 智慧核保小幫手</h2>
 <p style='color:#4B5563;'>請在下方輸入您的訊息，系統會將內容傳送給 AI Agent 並回覆結果。</p>
 """, unsafe_allow_html=True)
 
 if "helper_result" not in st.session_state:
-    st.session_state.helper_result = {}
+    st.session_state.helper_result = None
 if "helper_input" not in st.session_state:
     st.session_state.helper_input = ""
 
@@ -39,14 +47,15 @@ risk_color_map = {
     'C': '#FF7043',  # 橘色
     'D': '#DC3545'   # 紅色
 }
-grade = res.get('grade', 'N/A')
+grade = res.get('grade', 'N/A') if res else 'N/A'
 grade_color = risk_color_map.get(str(grade), '#6C757D')
 
-st.markdown(f"""
-<div style='background:#E9F5FF; border-radius:12px; padding:18px 24px; margin-bottom:16px;'>
-  <div style='font-size:1.45em; color:#005A9C; font-weight:bold;'>綜合評估總分：<span style='font-size:1.5em;'>{res.get('total_score','N/A')}</span></div>
-  <div style='font-size:1.45em; font-weight:bold; margin-top:8px; color:{grade_color};'>風險評級：<span style='font-size:1.3em;'>{grade}</span></div>
-  <div style='margin-top:18px; color:#343a40; font-size:1.45em; font-weight:bold;'>🧐 希望專家綜合說明:</div>
-  <div style='font-size:1.18em; margin-top:6px;'>{res.get('專家綜合說明','無說明')}</div>
-</div>
-""", unsafe_allow_html=True)
+if res:
+    st.markdown(f"""
+    <div style='background:#E9F5FF; border-radius:12px; padding:18px 24px; margin-bottom:16px;'>
+      <div style='font-size:1.45em; color:#005A9C; font-weight:bold;'>綜合評估總分：<span style='font-size:1.5em;'>{res.get('total_score','N/A')}</span></div>
+      <div style='font-size:1.45em; font-weight:bold; margin-top:8px; color:{grade_color};'>風險評級：<span style='font-size:1.3em;'>{grade}</span></div>
+      <div style='margin-top:18px; color:#343a40; font-size:1.45em; font-weight:bold;'>🧐 希望專家綜合說明:</div>
+      <div style='font-size:1.18em; margin-top:6px;'>{res.get('專家綜合說明','無說明')}</div>
+    </div>
+    """, unsafe_allow_html=True)

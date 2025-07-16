@@ -344,3 +344,55 @@ body.analysis-page .main .block-container { // Hypothetical if we can add class 
     padding-right: 2rem;
 }
 */
+
+/* Floating Action Button (FAB) for smart_agent_helper link */
+.floating-action-button {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    padding: 0;
+    z-index: 1000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.floating-action-button .fab-icon {
+    font-size: 4.2rem;
+    display: inline-block;
+    margin: 0;
+    line-height: 1;
+    transition: all 0.4s ease;
+}
+.floating-action-button .fab-text {
+    display: none;
+}
+
+.floating-action-button:hover {
+    background-color: #ffaa00cb;
+    color: #003366;
+    border-radius: 50px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    width: 210px;
+    height: 75px;
+    padding: 1rem;
+}
+.floating-action-button:hover .fab-icon {
+    font-size: 2.8rem;
+    margin-right: 1.1rem;
+    transform: rotate(360deg);
+}
+.floating-action-button:hover .fab-text {
+    display: inline-block;
+    font-size: 1.45rem;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.2s ease-in 0.1s;
+}
