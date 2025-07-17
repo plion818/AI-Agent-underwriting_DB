@@ -9,6 +9,37 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+# 右上角 house emoji 返回首頁按鈕（放大且絕對定位）
+st.markdown("""
+<style>
+.stButton > button#go-home-btn {
+  position: absolute;
+  top: 18px;
+  right: 32px;
+  font-size: 2.8rem;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #FFB300;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  cursor: pointer;
+  z-index: 9999;
+  transition: background 0.2s;
+}
+.stButton > button#go-home-btn:hover {
+  background: #FFB300;
+  color: #fff;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# 產生 house emoji 按鈕
+home_btn_placeholder = st.empty()
+home_btn = home_btn_placeholder.button("🏠", key="go-home-btn")
+if home_btn:
+    st.switch_page("home.py")
+
 st.markdown("""
 <h2 style='color:#005A9C;'>🧠 智慧核保小幫手</h2>
 <p style='color:#4B5563;'>請在下方輸入您的訊息，系統會將內容傳送給 AI Agent 並回覆結果。</p>
