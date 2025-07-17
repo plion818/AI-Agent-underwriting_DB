@@ -1,0 +1,8 @@
+INFO:     Will watch for changes in these directories: ['c:\\Users\\plion818\\1. Work\\金融領域演講\\AI_Agent_Eco']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [10800] using WatchFiles
+INFO:     Started server process [9796]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:53448 - "GET /search?q=%E6%9B%BE%E6%80%A1%E5%A9%B7 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53457 - "GET /config_rule_search?q=%E8%B2%A1%E7%94%A2%E4%BF%9D%E9%9A%AA%E8%A6%8F%E5%89%87 HTTP/1.1" 200 OK
