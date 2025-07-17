@@ -83,5 +83,124 @@
     "smoking": true,
     "property_proof": "退休金每月5萬",
     "希望購買保單": "壽險"
+  },
+  {
+    "customer_id": "C00020",
+    "name": "林書豪",
+    "gender": "男",
+    "birthdate": "1985-07-20",
+    "age": 38,
+    "occupation": "資訊工程師",
+    "marital_status": "已婚",
+    "contact": {
+      "phone": "0933555777",
+      "address": "新北市板橋區文化路100號"
+    },
+    "health_status": "良好",
+    "smoking": false,
+    "property_proof": "月收入7萬",
+    "希望購買保單": "壽險"
+  },
+  {
+    "customer_id": "C00021",
+    "name": "曾怡婷",
+    "gender": "女",
+    "birthdate": "1990-03-10",
+    "age": 35,
+    "occupation": "會計師",
+    "marital_status": "未婚",
+    "contact": {
+      "phone": "0966999222",
+      "address": "台南市中西區民族路220號"
+    },
+    "health_status": "良好",
+    "smoking": false,
+    "property_proof": "月收入3.5萬",
+    "希望購買保單": "財產保險"
+  },
+  {
+    "customer_id": "C00024",
+    "name": "王大錘",
+    "gender": "男",
+    "birthdate": "1963-10-12",
+    "age": 61,
+    "occupation": "司機",
+    "marital_status": "已婚",
+    "contact": {
+      "phone": "0977999888",
+      "address": "台中市北區崇德路650號"
+    },
+    "health_status": "一般",
+    "smoking": true,
+    "property_proof": "月收入3.8萬",
+    "希望購買保單": "醫療險"
+  },
+  {
+    "customer_id": "C00026",
+    "name": "許孟儒",
+    "gender": "男",
+    "birthdate": "1992-04-15",
+    "age": 33,
+    "occupation": "建築師",
+    "marital_status": "已婚",
+    "contact": {
+      "phone": "0988777666",
+      "address": "桃園市桃園區春日路168號"
+    },
+    "health_status": "良好",
+    "smoking": false,
+    "property_proof": "月收入7萬",
+    "希望購買保單": "財產保險"
+  },
+  {
+    "customer_id": "C00027",
+    "name": "吳珮琪",
+    "gender": "女",
+    "birthdate": "1961-01-10",
+    "age": 64,
+    "occupation": "臨時工",
+    "marital_status": "未婚",
+    "contact": {
+      "phone": "0922666888",
+      "address": "新北市三重區自強路50號"
+    },
+    "health_status": "一般",
+    "smoking": true,
+    "property_proof": "月收入2.5萬",
+    "希望購買保單": "財產保險"
+  },
+  {
+    "customer_id": "C00028",
+    "name": "劉子維",
+    "gender": "男",
+    "birthdate": "1987-06-30",
+    "age": 38,
+    "occupation": "軟體工程師",
+    "marital_status": "已婚",
+    "contact": {
+      "phone": "0933888555",
+      "address": "新竹市香山區東香街20號"
+    },
+    "health_status": "良好",
+    "smoking": false,
+    "property_proof": "月收入6.5萬",
+    "希望購買保單": "醫療險"
+  },
+  {
+    "customer_id": "C00029",
+    "name": "簡美華",
+    "gender": "女",
+    "birthdate": "1958-09-02",
+    "age": 66,
+    "occupation": "市場攤商",
+    "marital_status": "未婚",
+    "contact": {
+      "phone": "0922777888",
+      "address": "台南市南區大同路15號"
+    },
+    "health_status": "不佳",
+    "smoking": true,
+    "property_proof": "月收入2.7萬",
+    "希望購買保單": "醫療險"
   }
 ]

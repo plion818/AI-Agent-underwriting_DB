@@ -223,5 +223,319 @@
     "current_assets": [
       "退休金每月5萬"
     ]
+  },
+  {
+    "customer_id": "C00020",
+    "credit_rating": "AA",
+    "credit_alert": {
+      "credit_card_overdue_count": 1,
+      "bad_debt": false,
+      "joint_credit_warning": false,
+      "over_insurance": false,
+      "duplicate_insurance": false,
+      "abnormal_insurance": false
+    },
+    "insurance_history": [
+      {
+        "insurance_type": "壽險",
+        "status": "投保中"
+      }
+    ],
+    "claim_records": [
+      {
+        "claim_type": "壽險",
+        "claim_count": 1,
+        "total_claim_amount": 50000,
+        "main_reason": "意外骨折",
+        "disputed": false
+      }
+    ],
+    "review_records": {
+      "manual_reviewed": false,
+      "rejected": false,
+      "pending": false
+    },
+    "suspicious_transaction": {
+      "money_laundering": false,
+      "terrorist_financing": false
+    },
+    "criminal_record": {
+      "has_record": false,
+      "blacklist": false
+    },
+    "current_assets": [
+      "新北市板橋區公寓一戶（自住）",
+      "現金約80萬元"
+    ]
+  },
+
+  {
+    "customer_id": "C00021",
+    "credit_rating": "A",
+    "credit_alert": {
+      "credit_card_overdue_count": 2,
+      "bad_debt": false,
+      "joint_credit_warning": false,
+      "over_insurance": false,
+      "duplicate_insurance": false,
+      "abnormal_insurance": true
+    },
+    "insurance_history": [
+      {
+        "insurance_type": "財產保險",
+        "status": "投保中"
+      }
+    ],
+    "claim_records": [
+      {
+        "claim_type": "財產保險",
+        "claim_count": 2,
+        "total_claim_amount": 90000,
+        "main_reason": "水災損失",
+        "disputed": false
+      }
+    ],
+    "review_records": {
+      "manual_reviewed": false,
+      "rejected": false,
+      "pending": false
+    },
+    "suspicious_transaction": {
+      "money_laundering": false,
+      "terrorist_financing": false
+    },
+    "criminal_record": {
+      "has_record": false,
+      "blacklist": false
+    },
+    "current_assets": [
+      "台南市透天厝一棟（市值800萬）",
+      "現金約30萬元"
+    ]
+  },
+
+  {
+    "customer_id": "C00024",
+    "credit_rating": "BBB",
+    "credit_alert": {
+      "credit_card_overdue_count": 3,
+      "bad_debt": false,
+      "joint_credit_warning": false,
+      "over_insurance": false,
+      "duplicate_insurance": false,
+      "abnormal_insurance": false
+    },
+    "insurance_history": [
+      {
+        "insurance_type": "醫療險",
+        "status": "投保中"
+      }
+    ],
+    "claim_records": [
+      {
+        "claim_type": "醫療險",
+        "claim_count": 3,
+        "total_claim_amount": 70000,
+        "main_reason": "跌倒骨折",
+        "disputed": false
+      }
+    ],
+    "review_records": {
+      "manual_reviewed": false,
+      "rejected": false,
+      "pending": false
+    },
+    "suspicious_transaction": {
+      "money_laundering": false,
+      "terrorist_financing": false
+    },
+    "criminal_record": {
+      "has_record": false,
+      "blacklist": false
+    },
+    "current_assets": [
+      "台中市北區公寓一戶（市值400萬）",
+      "銀行存款20萬元"
+    ]
+  },
+  {
+    "customer_id": "C00026",
+    "credit_rating": "AA",
+    "credit_alert": {
+      "credit_card_overdue_count": 0,
+      "bad_debt": false,
+      "joint_credit_warning": false,
+      "over_insurance": false,
+      "duplicate_insurance": false,
+      "abnormal_insurance": false
+    },
+    "insurance_history": [
+      {
+        "insurance_type": "財產保險",
+        "status": "投保中"
+      }
+    ],
+    "claim_records": [
+      {
+        "claim_type": "財產保險",
+        "claim_count": 1,
+        "total_claim_amount": 20000,
+        "main_reason": "失竊損失",
+        "disputed": false
+      }
+    ],
+    "review_records": {
+      "manual_reviewed": false,
+      "rejected": false,
+      "pending": false
+    },
+    "suspicious_transaction": {
+      "money_laundering": false,
+      "terrorist_financing": false
+    },
+    "criminal_record": {
+      "has_record": false,
+      "blacklist": false
+    },
+    "current_assets": [
+      "桃園市春日路大樓一戶（市值900萬）",
+      "現金約120萬元"
+    ]
+  },
+  {
+    "customer_id": "C00027",
+    "credit_rating": "BBB",
+    "credit_alert": {
+      "credit_card_overdue_count": 4,
+      "bad_debt": true,
+      "joint_credit_warning": true,
+      "over_insurance": true,
+      "duplicate_insurance": false,
+      "abnormal_insurance": true
+    },
+    "insurance_history": [
+      {
+        "insurance_type": "財產保險",
+        "status": "退保",
+        "cancel_date": "2024-08-10",
+        "cancel_reason": "財務困難"
+      }
+    ],
+    "claim_records": [
+      {
+        "claim_type": "財產保險",
+        "claim_count": 3,
+        "total_claim_amount": 300000,
+        "main_reason": "火災損失",
+        "disputed": true
+      }
+    ],
+    "review_records": {
+      "manual_reviewed": true,
+      "rejected": true,
+      "pending": false
+    },
+    "suspicious_transaction": {
+      "money_laundering": true,
+      "terrorist_financing": false
+    },
+    "criminal_record": {
+      "has_record": true,
+      "blacklist": true
+    },
+    "current_assets": [
+      "無不動產",
+      "現金約5萬元"
+    ]
+  },
+  {
+    "customer_id": "C00028",
+    "credit_rating": "AA",
+    "credit_alert": {
+      "credit_card_overdue_count": 0,
+      "bad_debt": false,
+      "joint_credit_warning": false,
+      "over_insurance": false,
+      "duplicate_insurance": false,
+      "abnormal_insurance": false
+    },
+    "insurance_history": [
+      {
+        "insurance_type": "醫療險",
+        "status": "投保中"
+      }
+    ],
+    "claim_records": [
+      {
+        "claim_type": "醫療險",
+        "claim_count": 1,
+        "total_claim_amount": 18000,
+        "main_reason": "小型手術",
+        "disputed": false
+      }
+    ],
+    "review_records": {
+      "manual_reviewed": false,
+      "rejected": false,
+      "pending": false
+    },
+    "suspicious_transaction": {
+      "money_laundering": false,
+      "terrorist_financing": false
+    },
+    "criminal_record": {
+      "has_record": false,
+      "blacklist": false
+    },
+    "current_assets": [
+      "新竹市東香街華廈一戶（市值950萬）",
+      "銀行存款85萬元"
+    ]
+  },
+  {
+    "customer_id": "C00029",
+    "credit_rating": "BBB",
+    "credit_alert": {
+      "credit_card_overdue_count": 4,
+      "bad_debt": true,
+      "joint_credit_warning": true,
+      "over_insurance": false,
+      "duplicate_insurance": true,
+      "abnormal_insurance": true
+    },
+    "insurance_history": [
+      {
+        "insurance_type": "醫療險",
+        "status": "退保",
+        "cancel_date": "2023-12-15",
+        "cancel_reason": "財務困難"
+      }
+    ],
+    "claim_records": [
+      {
+        "claim_type": "醫療險",
+        "claim_count": 4,
+        "total_claim_amount": 150000,
+        "main_reason": "重大疾病理賠",
+        "disputed": true
+      }
+    ],
+    "review_records": {
+      "manual_reviewed": true,
+      "rejected": true,
+      "pending": false
+    },
+    "suspicious_transaction": {
+      "money_laundering": true,
+      "terrorist_financing": false
+    },
+    "criminal_record": {
+      "has_record": true,
+      "blacklist": true
+    },
+    "current_assets": [
+      "台南市市場攤位（估值50萬）",
+      "現金5萬元"
+    ]
   }
 ]
