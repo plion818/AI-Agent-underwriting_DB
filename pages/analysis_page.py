@@ -47,6 +47,16 @@ if css_styles:
     </style>
     """, unsafe_allow_html=True)
 
+# --- Header and Home Button ---
+# The button is now styled via the .page-header-action-button class in styles.css
+st.markdown("""
+    <div>
+        <a href="/" target="_self">
+            <button class="page-header-action-button">🏠</button>
+        </a>
+    </div>
+""", unsafe_allow_html=True)
+
 
 # --- Helper Functions for Data Transformation & Display ---
 

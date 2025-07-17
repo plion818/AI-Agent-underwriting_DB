@@ -2,6 +2,14 @@ import streamlit as st
 import os
 import json
 
+# --- 頁面設定 ---
+st.set_page_config(
+    page_title="歷史分析結果",
+    page_icon="📜",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
+
 # --- 載入 CSS ---
 def load_css(file_path):
     try:
