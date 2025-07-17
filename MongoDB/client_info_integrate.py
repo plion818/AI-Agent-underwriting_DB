@@ -1,5 +1,9 @@
+import os
 import json
 from pymongo import MongoClient
+
+# 取得專案根目錄
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 # MongoDB Atlas 連線
 MONGODB_URI = "mongodb+srv://patrick89818pp:890818pp@cluster0.jliqnkt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
@@ -8,11 +12,13 @@ db = client["store"]
 col = db["client_info"]
 
 # 讀取客戶基本資訊
-with open("客戶基本資訊/基本資訊.json", "r", encoding="utf-8") as f:
+basic_info_path = os.path.join(ROOT_DIR, "客戶基本資訊", "基本資訊.json")
+with open(basic_info_path, "r", encoding="utf-8") as f:
     basic_info = json.load(f)
 
 # 讀取客戶過往紀錄
-with open("客戶過往紀錄/過往紀錄.json", "r", encoding="utf-8") as f:
+history_info_path = os.path.join(ROOT_DIR, "客戶過往紀錄", "過往紀錄.json")
+with open(history_info_path, "r", encoding="utf-8") as f:
     history_info = json.load(f)
 
 # 建立 id 到過往紀錄的對照表

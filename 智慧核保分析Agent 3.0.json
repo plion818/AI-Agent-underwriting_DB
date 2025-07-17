@@ -769,7 +769,7 @@
                 "trace_as_input": true,
                 "trace_as_metadata": true,
                 "type": "str",
-                "value": "輸入範例:\n{\n  \"customer_info\": {...},      // 客戶完整原始資料\n  \"rules\": [\n    {\n      \"rule\": \"醫療險規則\",\n      \"keywords\": [...],\n      ...\n    },\n    {\n      \"rule\": \"財產保險規則\",\n      \"keywords\": [...],\n      ...\n    }\n    // 可能還有其它保險類別規則\n  ]\n}\n\n輸出範例:\n{\n  \"extracted\": {\n    \"keyword1\": \"value1\",\n    \"keyword2\": 123,\n    \"keyword3\": null,\n    ...\n  },\n  \"analysis\": {\n    \"優點\": [\n      \"例：月收入充足，有助於提升承保額度。\",\n      \"例：無信用卡逾期及犯罪紀錄，信譽良好。\"\n    ],\n    \"風險\": [\n      \"例：過往曾有理賠紀錄，建議進一步核查理賠原因。\",\n      \"例：有重複投保紀錄，須注意道德風險。\"\n    ],\n    \"建議\": [\n      \"例：建議適度提高自付額以降低保費。\",\n      \"例：如可補充更完整財力證明，有助於核保順利。\"\n    ]\n  }\n}\n\n\n"
+                "value": "{\n  \"extracted\": {\n    \"keyword1\": \"value1\",\n    \"keyword2\": 123,\n    \"keyword3\": null\n    // ...所有根據規則需擷取的關鍵字\n  },\n  \"analysis\": {\n    \"優點\": [\n      \"優點描述1\",\n      \"優點描述2\"\n    ],\n    \"風險\": [\n      \"風險描述1\",\n      \"風險描述2\"\n    ],\n    \"建議\": [\n      \"建議1\",\n      \"建議2\"\n    ]\n  }\n}\n"
               }
             },
             "tool_mode": false
@@ -784,8 +784,8 @@
           "width": 320
         },
         "position": {
-          "x": 86.9061338521067,
-          "y": 534.0705914778464
+          "x": 108.56463503952861,
+          "y": 528.1637275176404
         },
         "positionAbsolute": {
           "x": 55,
@@ -1673,7 +1673,7 @@
                 "tool_mode": false,
                 "trace_as_input": true,
                 "type": "prompt",
-                "value": "保險客戶評分工具（Scoring Tool）規則說明\n本評分工具依據以下明確規則，針對客戶資訊各欄位逐項評分，計算總分，最後依分數區間給出保險核保等級。請嚴格依據規則打分，不得任意調整分數或標準。\n\n評分規則\nproperty_proof（財力證明／月收入）\n\n3萬以下：1分\n\n3萬（含）～6萬：3分\n\n6萬（含）以上：5分\n\ncredit_rating（信用評等）\n\nAAA：5分\n\nAA：4分\n\nA：3分\n\nBBB以下：1分\n\ncredit_alert.credit_card_overdue_count（信用卡逾期次數）\n\n0次：5分\n\n1-2次：3分\n\n3次以上：1分\n\ncredit_alert.bad_debt（壞帳）\n\nFalse：5分\n\nTrue：1分\n\ncredit_alert.joint_credit_warning（聯合信用警示）\n\nFalse：5分\n\nTrue：1分\n\ncredit_alert.over_insurance（過度投保）\n\nFalse：5分\n\nTrue：1分\n\ncredit_alert.duplicate_insurance（重複投保）\n\nFalse：5分\n\nTrue：1分\n\ncredit_alert.abnormal_insurance（投保異常）\n\nFalse：5分\n\nTrue：1分\n\nclaim_records.claim_count（歷史理賠次數）\n\n0次：5分\n\n1-2次：3分\n\n3次以上：1分\n\nclaim_records.total_claim_amount（歷史理賠總金額）\n\n0元：5分\n\n0元以上～10萬元以內：3分\n\n10萬元以上：1分\n\nclaim_records.disputed（理賠是否有爭議）\n\nFalse：5分\n\nTrue：1分\n\ninsurance_history.status（保單狀態）\n\n投保中：5分\n\n退保：1分\n\ninsurance_history.cancel_reason（退保原因）\n\n財務困難：1分\n\n其他原因：3分\n\nreview_records.manual_reviewed（是否曾被人工審查）\n\n無：5分\n\n有：1分\n\nreview_records.rejected（是否曾被拒保）\n\n無：5分\n\n有：1分\n\nreview_records.pending（是否有審查中紀錄）\n\n無：5分\n\n有：1分\n\ncriminal_record.has_record（有無犯罪紀錄）\n\nFalse：5分\n\nTrue：1分\n\ncriminal_record.blacklist（有無黑名單紀錄）\n\nFalse：5分\n\nTrue：1分\n\nsuspicious_transaction.money_laundering（洗錢疑慮）\n\nFalse：5分\n\nTrue：1分\n\nsuspicious_transaction.terrorist_financing（恐怖融資疑慮）\n\nFalse：5分\n\nTrue：1分\n\nage（年齡）\n\n18~30歲：5分\n\n31~50歲：3分\n\n51歲以上：1分\n\nhealth_status（健康狀況）\n\n良好：5分\n\n一般：3分\n\n不佳：1分\n\nsmoking（是否吸菸）\n\n不吸菸：5分\n\n吸菸：1分\n\n分數區間與等級對應\nA+：65～70分\n\nA ：55～64分\n\nB ：45～54分\n\nC ：40～44分\n\nD ：39分以下\n\n請嚴格依照上述所有規則評分，所有欄位皆須根據標準給分，最後加總分數並依分數區間對應等級，嚴禁自行增減或更改評分標準。"
+                "value": "保險客戶評分工具（Scoring Tool）規則說明\n本評分工具依據以下明確規則，針對客戶資訊各欄位逐項評分，計算總分，最後依分數區間給出保險核保等級。請嚴格依據規則打分，不得任意調整分數或標準。\n\n評分規則\nproperty_proof（財力證明／月收入）\n\n3萬以下：1分\n\n3萬（含）～6萬：3分\n\n6萬（含）以上：5分\n\ncredit_rating（信用評等）\n\nAAA：5分\n\nAA：4分\n\nA：3分\n\nBBB以下：1分\n\ncredit_alert.credit_card_overdue_count（信用卡逾期次數）\n\n0次：5分\n\n1-2次：3分\n\n3次以上：1分\n\ncredit_alert.bad_debt（壞帳）\n\nFalse：5分\n\nTrue：1分\n\ncredit_alert.joint_credit_warning（聯合信用警示）\n\nFalse：5分\n\nTrue：1分\n\ncredit_alert.over_insurance（過度投保）\n\nFalse：5分\n\nTrue：1分\n\ncredit_alert.duplicate_insurance（重複投保）\n\nFalse：5分\n\nTrue：1分\n\ncredit_alert.abnormal_insurance（投保異常）\n\nFalse：5分\n\nTrue：1分\n\nclaim_records.claim_count（歷史理賠次數）\n\n0次：5分\n\n1-2次：3分\n\n3次以上：1分\n\nclaim_records.total_claim_amount（歷史理賠總金額）\n\n0元：5分\n\n0元以上～10萬元以內：3分\n\n10萬元以上：1分\n\nclaim_records.disputed（理賠是否有爭議）\n\nFalse：5分\n\nTrue：1分\n\ninsurance_history.status（保單狀態）\n\n投保中：5分\n\n退保：1分\n\ninsurance_history.cancel_reason（退保原因）\n\n財務困難：1分\n\n其他原因：3分\n\nreview_records.manual_reviewed（是否曾被人工審查）\n\nFalse：5分\n\nTrue：1分\n\nreview_records.rejected（是否曾被拒保）\n\nFalse：5分\n\nTrue：1分\n\nreview_records.pending（是否有審查中紀錄）\n\nFalse：5分\n\nTrue：1分\n\ncriminal_record.has_record（有無犯罪紀錄）\n\nFalse：5分\n\nTrue：1分\n\ncriminal_record.blacklist（有無黑名單紀錄）\n\nFalse：5分\n\nTrue：1分\n\nsuspicious_transaction.money_laundering（洗錢疑慮）\n\nFalse：5分\n\nTrue：1分\n\nsuspicious_transaction.terrorist_financing（恐怖融資疑慮）\n\nFalse：5分\n\nTrue：1分\n\nage（年齡）\n\n18~30歲：5分\n\n31~50歲：3分\n\n51歲以上：1分\n\nhealth_status（健康狀況）\n\n良好：5分\n\n一般：3分\n\n不佳：1分\n\nsmoking（是否吸菸）\n\n不吸菸：5分\n\n吸菸：1分\n\n分數區間與等級對應\nA+：65～70分\n\nA ：55～64分\n\nB ：45～54分\n\nC ：40～44分\n\nD ：39分以下\n\n請嚴格依照上述所有規則評分，所有欄位皆須根據標準給分，最後加總分數並依分數區間對應等級，嚴禁自行增減或更改評分標準。"
               },
               "tool_placeholder": {
                 "_input_type": "MessageTextInput",
@@ -2218,7 +2218,7 @@
           "x": 2782.9469488689783,
           "y": 601.6587854382982
         },
-        "selected": false,
+        "selected": true,
         "type": "genericNode"
       },
       {
@@ -3258,7 +3258,7 @@
                 "trace_as_input": true,
                 "trace_as_metadata": true,
                 "type": "str",
-                "value": "{\n  \"score_table\": [\n    {\n      \"項目\": \"property_proof\",\n      \"值\": \"退休金每月5萬\",\n      \"規則\": \"3萬以下：1；3~6萬：3；6萬↑：5\",\n      \"分數\": 3\n    },\n    {\n      \"項目\": \"credit_rating\",\n      \"值\": \"B\",\n      \"規則\": \"AAA:5；AA:4；A:3；BBB以下:1\",\n      \"分數\": 1\n    }\n    // ...以下每項皆同格式...\n  ],\n  \"score_formula\": \"3+1+1+5+...+1=24\",\n  \"total_score\": 24,\n  \"grade\": \"C\",\n  \"major_deductions\": [\"信用評等低\", \"有犯罪紀錄\", \"理賠爭議...\"],\n  \"major_credits\": [\"無重複投保\", \"無恐怖融資紀錄...\"],\n  \"overall_analysis\": \"此客戶屬於高風險等級，建議拒保或進行嚴格審查。\"\n}\n\n\n"
+                "value": "{\n  \"score_table\": [\n    {\n      \"項目\": \"property_proof\",\n      \"值\": \"退休金每月5萬\",\n      \"規則\": \"3萬以下：1；3~6萬：3；6萬↑：5\",\n      \"分數\": 3\n    },\n    {\n      \"項目\": \"credit_rating\",\n      \"值\": \"B\",\n      \"規則\": \"AAA:5；AA:4；A:3；BBB以下:1\",\n      \"分數\": 1\n    }\n    // ...以下每項皆同格式...\n  ],\n  \"score_formula\": \"3+1+1+5+...+1=...\",\n  \"total_score\": ...,\n  \"grade\": \"...\",\n  \"major_deductions\": [\"信用評等低\", \"有犯罪紀錄\", \"理賠爭議...\"],\n  \"major_credits\": [\"無重複投保\", \"無恐怖融資紀錄...\"],\n  \"overall_analysis\": \"此客戶屬於高風險等級，建議拒保或進行嚴格審查。\"\n}\n\n\n"
               }
             },
             "tool_mode": false
@@ -3392,7 +3392,7 @@
                 "tool_mode": false,
                 "trace_as_input": true,
                 "type": "prompt",
-                "value": "你是一位專業的客戶核保評分專家，負責協助保險公司嚴格依照標準規則審查客戶資訊，並進行風險評分。你只能根據 SCORING_RULES 工具所載的評分標準進行每一項欄位的逐項評分，不得任意更動或假設規則。\n在計算「總分」時，你必須呼叫 EVALUATE_EXPRESSION 工具（Calculator 工具）進行所有分數加總，禁止心算、手動加總或猜測分數，確保最終加總結果完全正確且可追溯。\n\n工作流程如下：\n1. 嚴格依照 SCORING_RULES 工具規則，針對每個評分項目打分，不得調整任何標準。\n2. 每一項目詳細列出：「項目名稱、值、規則描述、該項分數」。\n3. 將所有評分整理為 score_table（array of dict，欄位：「項目、值、規則、分數」）。\n4. score_table 必須涵蓋所有 SCORING_RULES 規範之欄位，順序必須完全與 SCORING_RULES 規則一致，且不可遺漏、不可重複、不可順序錯亂。\n5. score_formula 必須嚴格依據 score_table 的項目順序，將每一項的「分數」串接為加總公式（如：3+5+⋯+5=total_score）。左側必須展開所有分數，順序與 score_table 完全一致，不可多、不可少，不可順序錯亂。\n6. score_formula 的等號右側結果，必須為 EVALUATE_EXPRESSION 工具（Calculator 工具）自動加總所得之 total_score。\n7. 總分必須調用 EVALUATE_EXPRESSION 工具自動加總分數，不得手動加總。\n8. 根據 SCORING_RULES 工具中評分規則分數區間，嚴格對應出等級（grade），禁止自訂分級。\n\n條列如下內容，皆必須包含於 JSON：\na. 計分明細表（score_table，array of dict）\nb. 加總公式（score_formula，string，展開所有分數且順序必須與 score_table 一致）\nc. 總分（total_score，Calculator 工具加總結果）\nd. 等級（grade）\ne. 重大扣分來源（major_deductions，list）\nf. 高分來源（major_credits，list）\ng. 總體風險分析與建議（overall_analysis）\n\nJSON 格式要求：\n只能輸出標準 JSON（不得有任何文字、解釋、問候、或多餘標點）。\nscore_table 必須為陣列，array 每列為 dict。\nscore_formula 必須完整展開所有分數加總式，與 score_table 項目一一對應且順序一致。\n若 score_formula 與 score_table 分數數量或順序不一致，必須主動報錯並重新修正。\n\n僅能回傳如下結構：\n{output}\n\n特別強調：\n\n總分（total_score）必須由 EVALUATE_EXPRESSION 工具自動計算取得。\nscore_formula 加總結果必須與 total_score 完全一致。\n嚴禁任何手算、重複、遺漏或順序錯亂。\n\n※ 若未依上述規範輸出，視為未完成任務。請徹底依照規則執行，否則結果不被接受。"
+                "value": "你是一位專業的客戶核保評分專家，負責協助保險公司 **嚴格依照 SCORING_RULES 工具（內建評分標準）** 對客戶資訊進行逐項評分與風險分析。\n你每次評分時，只會收到一組 extracted（dict），每個 key 僅對應一個明確的評分規則欄位，每個 value 對應客戶該欄位的實際資料。\n\n請僅根據收到的 extracted 欄位，完全比對 SCORING_RULES 工具，對每一個欄位進行評分。\n嚴禁遺漏、重複、順序錯亂、腦補欄位、調整分數標準或自訂判斷。\n\n\n評分與輸出流程如下：\n1. 逐一遍歷 extracted 每一欄位，對照 SCORING_RULES 工具規則，明確記錄「項目名稱、值、規則描述、該項分數」。\n2. 完整列出 score_table（array of dict，順序必須與 extracted 完全一致），不可多、不可少、不可重複、不可錯位。\n3. score_formula 必須依照 score_table 順序，將所有分數展開為加總公式（如：3+5+5+⋯+1=total_score），左側分數數量與順序與 score_table 完全一致。\n4. score_formula 的等號右側結果，必須呼叫 EVALUATE_EXPRESSION 工具（Calculator 工具）自動加總取得，禁止任何人工加總、腦補或竄改。\n5. **根據 SCORING_RULES 工具分數區間對應出等級（grade），** 不得自訂或調整。\n6. 所有分析內容（major_deductions, major_credits, overall_analysis）必須根據 score_table 真實內容產生，不得假設未給分的欄位有任意狀態。\n7. **只允許輸出下列 JSON 結構，** 嚴禁其他文字、解釋、標點、問候語等：\n\n僅能回傳如下結構：\n{output}\n\n特別強調：\ntotal_score 必須由 EVALUATE_EXPRESSION 工具自動計算取得。\nscore_formula 必須逐項展開所有分數、順序嚴格與 score_table 對齊，數量完全一致。\n嚴禁任何遺漏、重複、錯誤順序或手算。\n違反上述規範者，視為未完成任務。"
               },
               "tool_placeholder": {
                 "_input_type": "MessageTextInput",
@@ -4676,7 +4676,7 @@
                 "trace_as_input": true,
                 "trace_as_metadata": true,
                 "type": "str",
-                "value": "我要查詢李彥廷的評分"
+                "value": "我要查詢張信哲的評分"
               },
               "sender": {
                 "_input_type": "DropdownInput",
@@ -5533,8 +5533,8 @@
           "width": 320
         },
         "position": {
-          "x": 744.8978622654997,
-          "y": 1709.8299759480649
+          "x": 733.0841343450877,
+          "y": 1642.8855177323971
         },
         "selected": false,
         "type": "genericNode"
@@ -6980,7 +6980,7 @@
                 "tool_mode": false,
                 "trace_as_input": true,
                 "type": "prompt",
-                "value": "你是一位專業的保險資料處理智能體，會收到兩組資料：{client_info}（客戶資訊）與 {rule}（該客戶欲購買保單對應規則）。請嚴格依照下列規範進行資料擷取與分析：\n\n1. 根據 rule 內的 keywords 所列 key path，從 client_info 逐一取得對應資料（如 \"credit_alert.credit_card_overdue_count\" 需正確抓取巢狀欄位）。如遇關鍵字查無資料，請填 null。\n2. 根據擷取結果及規則條件，條列說明「優點」、「風險」、「建議」，內容需客觀、務實、具體，並以正體中文撰寫。\n3. **只允許回傳下列標準 JSON 結構為最終輸出（所有 key 與巢狀結構必須完全符合，禁止增減欄位、修改名稱或補充說明）**，不得產生任何額外文字或說明。\n\n範例:\n{output}\n\n規則強調\n所有回答、條列、key 與 value 皆必須為正體中文。\n所有資料均須依 keywords 逐一查找，缺漏時請填 null，不可自行填寫說明文字。\n輸出格式嚴格限定為上方 output 中的輸出範例結構，禁止其他多餘內容、標點、招呼語或說明。\n\n"
+                "value": "你是一位專業的保險資料處理智能體，會收到兩組資料：{client_info}（客戶資訊）與 {rule}（該客戶欲購買保單對應規則）。請嚴格依照下列規範進行資料擷取與分析：\n\n1. 根據 rule 內的 keywords 所列 key path，從 client_info 逐一取得對應資料（如 \"credit_alert.credit_card_overdue_count\" 需正確抓取巢狀欄位）。如遇關鍵字查無資料，請填 null。\n2. 根據擷取結果及規則條件，條列說明「優點」、「風險」、「建議」，內容需客觀、務實、具體，並以正體中文撰寫。\n3. **只允許回傳下列標準 JSON 結構為最終輸出（所有 key 與巢狀結構必須完全符合，禁止增減欄位、修改名稱或補充說明）**，不得產生任何額外文字或說明。\n\n範例:\n{output}\n\n規則強調\n所有回答、條列、key 與 value 皆必須為正體中文。\n所有資料均須依 keywords 逐一查找，缺漏時請填 null，不可自行填寫說明文字。\n輸出格式嚴格限定為上方 output 中的 **輸出範例結構**，禁止其他多餘內容、標點、招呼語或說明。\n\n"
               },
               "tool_placeholder": {
                 "_input_type": "MessageTextInput",
@@ -8139,7 +8139,7 @@
         "id": "note-XmK6v",
         "measured": {
           "height": 857,
-          "width": 348
+          "width": 349
         },
         "position": {
           "x": 1657.678162738751,
@@ -8200,8 +8200,8 @@
           "width": 394
         },
         "position": {
-          "x": 298.20824826395847,
-          "y": -347.6624446943931
+          "x": 369.09061578643013,
+          "y": -150.76697935419395
         },
         "resizing": false,
         "selected": false,
@@ -8210,9 +8210,9 @@
       }
     ],
     "viewport": {
-      "x": 263.3573443581646,
-      "y": -240.8667000830128,
-      "zoom": 0.33507828849512267
+      "x": -239.4654152688911,
+      "y": 101.81102303867914,
+      "zoom": 0.3401026953302921
     }
   },
   "description": "Conversational Cartography Unlocked.",

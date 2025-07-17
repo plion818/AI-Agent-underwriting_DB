@@ -142,7 +142,6 @@ config_rules = {
                 "credit_alert.bad_debt",
                 "credit_alert.joint_credit_warning",
                 "credit_alert.over_insurance",
-                "credit_alert.duplicate_insurance",
                 "credit_alert.abnormal_insurance"
             ],
             "required": True,
@@ -152,26 +151,22 @@ config_rules = {
         {
             "rule": "理賠與保單紀錄",
             "keywords": [
-                "claim_records.claim_count",
                 "claim_records.total_claim_amount",
                 "claim_records.disputed",
-                "insurance_history.status",
-                "insurance_history.cancel_reason"
+                "insurance_history.status"
             ],
             "required": False,
             "class": "理賠風險",
-            "description": "理賠次數、金額、爭議情形、退保紀錄與原因"
+            "description": "理賠金額、爭議情形、退保紀錄"
         },
         {
             "rule": "人工審查",
             "keywords": [
-                "review_records.manual_reviewed",
-                "review_records.rejected",
-                "review_records.pending"
+                "review_records.rejected"
             ],
             "required": False,
             "class": "人工審查",
-            "description": "是否曾被人工審查、拒保或暫緩"
+            "description": "是否曾被拒保"
         },
         {
             "rule": "風險控管",
