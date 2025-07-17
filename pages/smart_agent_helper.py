@@ -1,5 +1,7 @@
 import streamlit as st
 from agent_api_client import call_agent_api, extract_final_results
+import json
+import os
 
 # --- Page Configuration ---
 st.set_page_config(
@@ -9,36 +11,22 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# 右上角 house emoji 返回首頁按鈕（放大且絕對定位）
-st.markdown("""
-<style>
-.stButton > button#go-home-btn {
-  position: absolute;
-  top: 18px;
-  right: 32px;
-  font-size: 2.8rem;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: 2px solid #FFB300;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-  cursor: pointer;
-  z-index: 9999;
-  transition: background 0.2s;
-}
-.stButton > button#go-home-btn:hover {
-  background: #FFB300;
-  color: #fff;
-}
-</style>
-""", unsafe_allow_html=True)
+# --- Load CSS ---
+def load_css(file_path):
+    with open(file_path, "r", encoding="utf-8") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# 產生 house emoji 按鈕
-home_btn_placeholder = st.empty()
-home_btn = home_btn_placeholder.button("🏠", key="go-home-btn")
-if home_btn:
-    st.switch_page("home.py")
+load_css("assets/styles.css")
+
+# --- Header and Home Button ---
+# The button is now styled via the .page-header-action-button class in styles.css
+st.markdown("""
+    <div style="position: relative;">
+        <a href="/" target="_self">
+            <button class="page-header-action-button">🏠</button>
+        </a>
+    </div>
+""", unsafe_allow_html=True)
 
 st.markdown("""
 <h2 style='color:#005A9C;'>🧠 智慧核保小幫手</h2>
@@ -64,6 +52,16 @@ if st.button("送出", key="helper_send_btn") and user_input.strip():
     else:
         filtered = {'total_score': 'N/A', 'grade': 'N/A', '專家綜合說明': '無說明'}
     st.session_state.helper_result = filtered
+    # 儲存結果到 Results/history
+    history_dir = os.path.join('Results', 'history')
+    os.makedirs(history_dir, exist_ok=True)
+    # 以 timestamp 作為檔名
+    import datetime
+    ts = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+    filename = f"result_{ts}.json"
+    filepath = os.path.join(history_dir, filename)
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(filtered, f, ensure_ascii=False, indent=2)
     st.rerun()
 
 st.markdown("<hr>", unsafe_allow_html=True)

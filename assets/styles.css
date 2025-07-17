@@ -396,3 +396,34 @@ body.analysis-page .main .block-container { // Hypothetical if we can add class 
     opacity: 1;
     transition: opacity 0.2s ease-in 0.1s;
 }
+
+/* Button used in page headers (e.g., 'Go Home' button) */
+.page-header-action-button {
+    position: absolute;
+    top: 1.2rem; /* Adjusted for better alignment */
+    right: 2.5rem; /* Adjusted for better alignment */
+    font-size: 2rem; /* Slightly smaller for a cleaner look */
+    width: 55px; /* Adjusted size */
+    height: 55px; /* Adjusted size */
+    border-radius: 50%;
+    border: 2px solid #FFB300; /* Gold border */
+    background-color: #FFFFFF; /* White background */
+    color: #333; /* Darker icon color for contrast */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex; /* Using flexbox for centering */
+    justify-content: center;
+    align-items: center;
+    transition: all 0.25s ease-in-out;
+}
+.page-header-action-button:hover {
+    background-color: #FFB300; /* Gold background on hover */
+    color: #FFFFFF; /* White icon on hover */
+    transform: translateY(-2px) scale(1.05); /* Add a slight lift and scale effect */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+.page-header-action-button:active {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
