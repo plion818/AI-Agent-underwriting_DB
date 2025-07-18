@@ -59,3 +59,13 @@ else:
           <div style='font-size:1.18em; margin-top:6px;'>{res.get('專家綜合說明','無說明')}</div>
         </div>
         """, unsafe_allow_html=True)
+
+st.markdown(
+    """
+    <a href="/smart_agent_helper" target="_self" class="floating-action-button" title="使用智慧核保分析小幫手">
+        <span class="fab-icon">🤖</span>
+        <span class="fab-text">返回分析</span>
+    </a>
+    """,
+    unsafe_allow_html=True
+)

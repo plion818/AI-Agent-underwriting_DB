@@ -7,3 +7,6 @@ echo 啟動 langflow...
 timeout /t 5
 start cmd /k "uvicorn search_api:app --reload > log\api.log 2>&1"
 start cmd /k "streamlit run home.py > log\streamlit.log 2>&1"
+
+
+# .\start_project.bat
